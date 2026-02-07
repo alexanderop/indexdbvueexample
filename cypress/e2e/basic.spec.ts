@@ -1,36 +1,36 @@
-context('Basic', () => {
+context('IndexedDB Vue Demo', () => {
   beforeEach(() => {
     cy.visit('/')
   })
 
-  it('basic nav', () => {
+  it('loads the home page', () => {
     cy.url()
       .should('eq', 'http://localhost:3333/')
 
-    cy.contains('[Home Layout]')
+    cy.contains('IndexedDB in Vue')
       .should('exist')
-
-    cy.get('#input')
-      .type('Vitesse{Enter}')
-      .url()
-      .should('eq', 'http://localhost:3333/hi/Vitesse')
-
-    cy.contains('[Default Layout]')
-      .should('exist')
-
-    cy.get('[btn]')
-      .click()
-      .url()
-      .should('eq', 'http://localhost:3333/')
   })
 
-  it('markdown', () => {
-    cy.get('[data-test-id="about"]')
-      .click()
-      .url()
-      .should('eq', 'http://localhost:3333/about')
+  it('navigates to each demo page', () => {
+    const pages = ['vanilla', 'idb', 'dexie', 'vueuse', 'persistence']
 
-    cy.get('.shiki')
-      .should('exist')
+    pages.forEach((page) => {
+      cy.visit(`/${page}`)
+      cy.url().should('include', `/${page}`)
+    })
+  })
+
+  it('increments the vanilla counter', () => {
+    cy.visit('/vanilla')
+    cy.get('[data-testid="count"]').should('contain', '0')
+    cy.get('[data-testid="inc"]').click()
+    cy.get('[data-testid="count"]').should('contain', '1')
+  })
+
+  it('decrements the idb counter', () => {
+    cy.visit('/idb')
+    cy.get('[data-testid="count"]').should('contain', '0')
+    cy.get('[data-testid="dec"]').click()
+    cy.get('[data-testid="count"]').should('contain', '-1')
   })
 })

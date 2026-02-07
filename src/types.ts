@@ -1,3 +1,6 @@
-import type { ViteSSGContext } from 'vite-ssg'
-
-export type UserModule = (ctx: ViteSSGContext) => void
+export interface CounterComposable {
+  count: import('vue').Ref<number>
+  inc: () => void
+  dec: () => void
+  isReady: import('vue').Ref<boolean>
+}

@@ -1,19 +1,24 @@
 <script setup lang="ts">
-const props = defineProps<{
-  initial: number
+defineProps<{
+  count: number
+  label?: string
 }>()
 
-const { count, inc, dec } = useCounter(props.initial)
+defineEmits<{
+  increment: []
+  decrement: []
+}>()
 </script>
 
 <template>
-  <div>
-    {{ count }}
-    <button class="inc" @click="inc()">
-      +
-    </button>
-    <button class="dec" @click="dec()">
+  <div flex="~ gap-2" items-center justify-center py-4>
+    <span v-if="label" text-sm opacity-75>{{ label }}</span>
+    <button data-testid="dec" class="dec m-1 text-sm btn" @click="$emit('decrement')">
       -
+    </button>
+    <span data-testid="count" text-2xl font-mono>{{ count }}</span>
+    <button data-testid="inc" class="inc m-1 text-sm btn" @click="$emit('increment')">
+      +
     </button>
   </div>
 </template>
