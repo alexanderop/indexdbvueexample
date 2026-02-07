@@ -8,7 +8,7 @@ useHead({
     },
     {
       name: 'theme-color',
-      content: () => isDark.value ? '#00aba9' : '#ffffff',
+      content: '#212737',
     },
   ],
   link: [

@@ -1,3 +1,15 @@
+:root {
+  --color-fill: 33, 39, 55;
+  --color-text-base: 234, 237, 243;
+  --color-accent: 255, 107, 237;
+  --color-card: 52, 63, 96;
+  --color-card-muted: 138, 51, 123;
+  --color-border: 171, 75, 153;
+  --color-success: 74, 222, 128;
+  --color-warning: 251, 191, 36;
+  --color-error: 248, 113, 113;
+}
+
 html,
 body,
 #app {
@@ -6,7 +18,8 @@ body,
   padding: 0;
 }
 
-html.dark {
-  background: #121212;
+html {
+  background: rgb(var(--color-fill));
+  color: rgb(var(--color-text-base));
   color-scheme: dark;
 }

@@ -18,7 +18,7 @@ defineOptions({
         href="https://alexop.dev/posts/how-to-use-indexeddb-in-vue/"
         target="_blank"
         rel="noreferrer"
-        underline
+        text-accent underline
       >
         "How to Use IndexedDB in Vue Projects"
       </a>
@@ -27,23 +27,28 @@ defineOptions({
     <div py-6 />
 
     <h2 mb-2 text-lg font-semibold>
-      Approaches
+      Pick an approach to try
     </h2>
-    <div flex="~ col gap-2" items-center text-sm>
-      <RouterLink btn to="/vanilla">
-        1. Vanilla IndexedDB API
+    <div flex="~ col gap-3" mx-auto max-w-sm text-sm>
+      <RouterLink to="/vanilla" block rounded-lg border="~ border" bg-card p-3 text-left transition hover:bg-card-muted>
+        <span text-accent font-semibold>1. Vanilla IndexedDB API</span>
+        <span mt-1 block text-xs op-60>Raw browser API with event-based callbacks</span>
       </RouterLink>
-      <RouterLink btn to="/idb">
-        2. idb (Promise wrapper)
+      <RouterLink to="/idb" block rounded-lg border="~ border" bg-card p-3 text-left transition hover:bg-card-muted>
+        <span text-accent font-semibold>2. idb (Promise wrapper)</span>
+        <span mt-1 block text-xs op-60>Thin promise-based wrapper around IndexedDB</span>
       </RouterLink>
-      <RouterLink btn to="/dexie">
-        3. Dexie.js (full ORM)
+      <RouterLink to="/dexie" block rounded-lg border="~ border" bg-card p-3 text-left transition hover:bg-card-muted>
+        <span text-accent font-semibold>3. Dexie.js (full ORM)</span>
+        <span mt-1 block text-xs op-60>Feature-rich IndexedDB wrapper with query API</span>
       </RouterLink>
-      <RouterLink btn to="/vueuse">
-        4. VueUse useIDBKeyval
+      <RouterLink to="/vueuse" block rounded-lg border="~ border" bg-card p-3 text-left transition hover:bg-card-muted>
+        <span text-accent font-semibold>4. VueUse useIDBKeyval</span>
+        <span mt-1 block text-xs op-60>Reactive key-value storage with idb-keyval</span>
       </RouterLink>
-      <RouterLink btn to="/persistence">
-        5. Storage Persistence API
+      <RouterLink to="/persistence" block rounded-lg border="~ border" bg-card p-3 text-left transition hover:bg-card-muted>
+        <span text-accent font-semibold>5. Storage Persistence API</span>
+        <span mt-1 block text-xs op-60>Request persistent storage so data survives cleanup</span>
       </RouterLink>
     </div>
 
@@ -55,7 +60,7 @@ defineOptions({
     <div overflow-x-auto>
       <table mx-auto text-left text-sm>
         <thead>
-          <tr border-b="~ gray-200 dark:gray-700">
+          <tr border-b="~ border">
             <th p-2>
               Feature
             </th>
@@ -68,7 +73,7 @@ defineOptions({
           </tr>
         </thead>
         <tbody>
-          <tr border-b="~ gray-200 dark:gray-700">
+          <tr border-b="~ border">
             <td p-2>
               Storage Limit
             </td>
@@ -79,7 +84,7 @@ defineOptions({
               GB+ (quota-based)
             </td>
           </tr>
-          <tr border-b="~ gray-200 dark:gray-700">
+          <tr border-b="~ border">
             <td p-2>
               Data Types
             </td>
@@ -90,7 +95,7 @@ defineOptions({
               Structured clone (objects, blobs, etc.)
             </td>
           </tr>
-          <tr border-b="~ gray-200 dark:gray-700">
+          <tr border-b="~ border">
             <td p-2>
               API Style
             </td>
@@ -101,7 +106,7 @@ defineOptions({
               Asynchronous
             </td>
           </tr>
-          <tr border-b="~ gray-200 dark:gray-700">
+          <tr border-b="~ border">
             <td p-2>
               Transactions
             </td>

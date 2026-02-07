@@ -53,8 +53,8 @@ function formatBytes(bytes: number): string {
         <span font-semibold>Persisted:</span>
         <span ml-2>
           <span v-if="isPersisted === null" opacity-50>Checking...</span>
-          <span v-else-if="isPersisted" text-green-600>Yes</span>
-          <span v-else text-orange-500>No (best-effort)</span>
+          <span v-else-if="isPersisted" text-success>Yes</span>
+          <span v-else text-warning>No (best-effort)</span>
         </span>
       </div>
 
